@@ -25,12 +25,14 @@ public class RestApiController {
 
     @GetMapping("/revenues")
     public List<Revenue> getAllRevenue(){return revenueService.getAllRevenues();}
+
     @GetMapping("/expenses")
     public List<Expense> getAllExpense(){return expenseService.getAllExpenses();}
     @GetMapping("/adms")
     public List<Adm> getAllAdm(){return admService.getAllAdm();}
     @GetMapping("/districts")
     public List<District> getAllDistricts(){return districtService.getAllDistricts();}
+
     @GetMapping("/users")
     public List<User> getAllUsers(){return userService.getAllUsers();}
 

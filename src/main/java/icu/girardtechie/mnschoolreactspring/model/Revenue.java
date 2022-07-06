@@ -22,9 +22,11 @@ public class Revenue {
     private int gfStateAidAdj;
     private int gfStateTotal;
     private int gfFedTotal;
+    private int gfTotal;
     private int foodSvc;
     private int commSvc;
     private int bldConst;
+    private int debtSvc;
     private int opeb;
     private int totalRev;
     private int totalLocalPropTax;
@@ -131,5 +133,13 @@ public class Revenue {
 
     public int getTotalFed() {
         return totalFed;
+    }
+
+    public int getGfTotal() {
+        return gfTotal;
+    }
+
+    public int getDebtSvc() {
+        return debtSvc;
     }
 }
