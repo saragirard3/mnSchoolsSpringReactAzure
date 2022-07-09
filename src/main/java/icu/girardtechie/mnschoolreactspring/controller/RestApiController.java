@@ -32,13 +32,4 @@ public class RestApiController {
     public List<Adm> getAllAdm(){return admService.getAllAdm();}
     @GetMapping("/districts")
     public List<District> getAllDistricts(){return districtService.getAllDistricts();}
-
-    @GetMapping("/users")
-    public List<User> getAllUsers(){return userService.getAllUsers();}
-
-    @PostMapping("/addUsers")
-    public String add(@RequestBody User user){
-        userService.addUser(user);
-        return "New User Added";
-    }
 }
