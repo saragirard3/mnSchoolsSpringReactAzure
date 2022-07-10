@@ -8,8 +8,10 @@ import Comparison from "./comparison/Comparison";
 import Trends from "./trends/Trends";
 import Profile from "./pages/Profile";
 import Logout from "./pages/Logout";
-// import EditUser from "./users/EditUser";
-// import ViewUser from "./users/ViewUser";
+import Admin from "./pages/Admin";
+// import EditUser from "./user/EditUser";
+import ViewUser from "./user/ViewUser";
+
 
 function App() {
   return (
@@ -22,13 +24,13 @@ function App() {
                 <Route exact path="/district" element={<District />}  />
                 <Route exact path="/comparison" element={<Comparison />}  />
                 <Route exact path="/trends" element={<Trends />}  />
+                <Route exact path="/admin" element={<Admin />}  />
                 <Route exact path="/profile" element={<Profile />} />
-
                 <Route exact path="/logout" element={<Logout />} />
 
-                {/*<Route exact path="/adduser" element={<AddUser />} />*/}
+                <Route exact path="/adduser" element={<AddUser />} />
                 {/*<Route exact path="/edituser/:id" element={<EditUser />} />*/}
-                {/*<Route exact path="/viewuser/:id" element={<ViewUser />} />*/}
+                <Route exact path="/viewuser/:id" element={<ViewUser />} />
             </Routes>
         </Router>
     </div>

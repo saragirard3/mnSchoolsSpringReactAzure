@@ -6,11 +6,13 @@ export default function AddUser() {
     let navigate = useNavigate();
 
     const [user, setUser] = useState({
-        name: "",
-        username: "",
+        userId:"",
+        firstName: "",
+        lastName: "",
         email: "",
+        distId: "",
     });
-    const { name, username, email } = user;
+    const { userId, firstName, lastName, email, distId } = user;
 
     const onInputChange = (e) => {
         setUser({ ...user, [e.target.name]: e.target.value });
@@ -30,28 +32,28 @@ export default function AddUser() {
 
                     <form onSubmit={(e) => onSubmit(e)}>
                         <div className="mb-3">
-                            <label htmlFor="Name" className="form-label">
-                                Name
+                            <label htmlFor="firstName" className="form-label">
+                                First Name
                             </label>
                             <input
                                 type={"text"}
                                 className="form-control"
-                                placeholder="Enter your name"
-                                name="name"
-                                value={name}
+                                placeholder="Enter your first name"
+                                name="firstName"
+                                value={firstName}
                                 onChange={(e) => onInputChange(e)}
                             />
                         </div>
                         <div className="mb-3">
-                            <label htmlFor="Username" className="form-label">
-                                Username
+                            <label htmlFor="lastName" className="form-label">
+                                Last Name
                             </label>
                             <input
                                 type={"text"}
                                 className="form-control"
-                                placeholder="Enter your username"
-                                name="username"
-                                value={username}
+                                placeholder="Enter your last name"
+                                name="lastName"
+                                value={lastName}
                                 onChange={(e) => onInputChange(e)}
                             />
                         </div>
@@ -65,6 +67,19 @@ export default function AddUser() {
                                 placeholder="Enter your e-mail address"
                                 name="email"
                                 value={email}
+                                onChange={(e) => onInputChange(e)}
+                            />
+                        </div>
+                        <div className="mb-3">
+                            <label htmlFor="distId" className="form-label">
+                                District
+                            </label>
+                            <input
+                                type={"text"}
+                                className="form-control"
+                                placeholder="Enter your district number"
+                                name="distId"
+                                value={distId}
                                 onChange={(e) => onInputChange(e)}
                             />
                         </div>
