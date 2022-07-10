@@ -28,17 +28,18 @@ public class UserServiceImpl implements UserService{
                 .orElseThrow(() -> new UserNotFoundException(id));
     }
 
-//    @Override
-//    User updateUser(@RequestBody User newUser, @PathVariable Integer id) {
-//        return userRepository.findById(id)
-//                .map(user -> {
-//                    user.setUsername(newUser.getUsername());
-//                    user.setName(newUser.getName());
-//                    user.setEmail(newUser.getEmail());
-//                    return userRepository.save(user);
-//                }).orElseThrow(() -> new UserNotFoundException(id));
-//    }
-//
+    @Override
+    public User updateUser(@RequestBody User currentUser, @PathVariable Integer id) {
+        return userRepository.findById(id)
+                .map(user -> {
+                    user.setFirstName(currentUser.getFirstName());
+                    user.setLastName(currentUser.getLastName());
+                    user.setEmail(currentUser.getEmail());
+                    user.setDistId(currentUser.getDistId());
+                    return userRepository.save(user);
+                }).orElseThrow(() -> new UserNotFoundException(id));
+    }
+
     @Override
     public String deleteUser(@PathVariable Integer id){
         if(!userRepository.existsById(id)){

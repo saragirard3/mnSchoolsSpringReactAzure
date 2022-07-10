@@ -27,16 +27,10 @@ public class UserController {
         return userService.getUserById(id);
     }
 
-//    @PutMapping("/user/{id}")
-//    User updateUser(@RequestBody User newUser, @PathVariable Long id) {
-//        return userRepository.findById(id)
-//                .map(user -> {
-//                    user.setUsername(newUser.getUsername());
-//                    user.setName(newUser.getName());
-//                    user.setEmail(newUser.getEmail());
-//                    return userRepository.save(user);
-//                }).orElseThrow(() -> new UserNotFoundException(id));
-//    }
+    @PutMapping("/user/{id}")
+    User updateUser(@RequestBody User currentUser, @PathVariable Integer id) {
+        return userService.updateUser(currentUser,id);
+  }
 
     @DeleteMapping("/user/{id}")
     String deleteUser(@PathVariable Integer id){

@@ -1,9 +1,6 @@
 package icu.girardtechie.mnschoolreactspring.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class User {
@@ -13,9 +10,9 @@ public class User {
     private int userId;
     private String firstName;
     private String lastName;
+    @Column(unique = true)
     private String email;
     private int distId;
-    private String userName;
 
     public User() {
     }
@@ -60,11 +57,4 @@ public class User {
         this.distId = distId;
     }
 
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
 }
