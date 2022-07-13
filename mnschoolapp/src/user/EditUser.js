@@ -1,9 +1,11 @@
 import axios from "axios";
-import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
-export default function AddUser() {
+export default function EditUser() {
     let navigate = useNavigate();
+
+    const { id } = useParams();
 
     const [user, setUser] = useState({
         userId:"",
@@ -12,23 +14,33 @@ export default function AddUser() {
         email: "",
         distId: "",
     });
+
     const { userId, firstName, lastName, email, distId } = user;
 
     const onInputChange = (e) => {
         setUser({ ...user, [e.target.name]: e.target.value });
     };
 
+    useEffect(() => {
+        loadUser();
+    }, []);
+
     const onSubmit = async (e) => {
         e.preventDefault();
-        await axios.post("http://localhost:8080/adduser", user);
+        await axios.put(`http://localhost:8080/user/${id}`, user);
         navigate("/admin");
+    };
+
+    const loadUser = async () => {
+        const result = await axios.get(`http://localhost:8080/user/${id}`);
+        setUser(result.data);
     };
 
     return (
         <div className="container">
             <div className="row">
                 <div className="col-md-6 offset-md-3 border rounded p-4 mt-2 shadow">
-                    <h2 className="text-center m-4">Register User</h2>
+                    <h2 className="text-center m-4">Edit User</h2>
 
                     <form onSubmit={(e) => onSubmit(e)}>
                         <div className="mb-3">
@@ -38,7 +50,7 @@ export default function AddUser() {
                             <input
                                 type={"text"}
                                 className="form-control"
-                                placeholder="Enter your first name"
+                                placeholder="Enter your name"
                                 name="firstName"
                                 value={firstName}
                                 onChange={(e) => onInputChange(e)}
@@ -46,12 +58,12 @@ export default function AddUser() {
                         </div>
                         <div className="mb-3">
                             <label htmlFor="lastName" className="form-label">
-                                Last Name
+                                lastName
                             </label>
                             <input
                                 type={"text"}
                                 className="form-control"
-                                placeholder="Enter your last name"
+                                placeholder="Enter your lastName"
                                 name="lastName"
                                 value={lastName}
                                 onChange={(e) => onInputChange(e)}
@@ -72,12 +84,12 @@ export default function AddUser() {
                         </div>
                         <div className="mb-3">
                             <label htmlFor="distId" className="form-label">
-                                District
+                                distId
                             </label>
                             <input
                                 type={"text"}
                                 className="form-control"
-                                placeholder="Enter your district number"
+                                placeholder="Enter your e-mail address"
                                 name="distId"
                                 value={distId}
                                 onChange={(e) => onInputChange(e)}
@@ -86,7 +98,7 @@ export default function AddUser() {
                         <button type="submit" className="btn btn-outline-primary">
                             Submit
                         </button>
-                        <Link className="btn btn-outline-danger mx-2" to="/">
+                        <Link className="btn btn-outline-danger mx-2" to="/admin">
                             Cancel
                         </Link>
                     </form>

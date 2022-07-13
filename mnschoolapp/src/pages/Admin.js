@@ -5,7 +5,7 @@ import {Link, useParams} from 'react-router-dom';
 export default function Admin() {
     const [users, setUsers] = useState([]);
 
-    const { id } = useParams();
+    const { userId } = useParams();
 
     useEffect(() => {
         loadUsers();
@@ -16,15 +16,17 @@ export default function Admin() {
         setUsers(result.data);
     };
 
-    const deleteUser = async (id) => {
-        await axios.delete(`http://localhost:8080/user/${id}`);
+    const deleteUser = async (userId) => {
+        await axios.delete(`http://localhost:8080/user/${userId}`);
         await loadUsers();
     };
 
     return (
         <div className="container">
             <div className="py-4">
+
                 <table className="table border shadow">
+
                     <thead>
                     <tr>
                         <th scope="col">ID</th>
@@ -33,8 +35,7 @@ export default function Admin() {
                         <th scope="col">Email</th>
                         <th scope="col">District Number</th>
                         <th scope="col">Action</th>
-
-                    </tr>
+                                            </tr>
                     </thead>
                     <tbody>
                     {users.map((user, index) => (
@@ -54,15 +55,15 @@ export default function Admin() {
                                 >
                                     View
                                 </Link>
-                                <button
+                                <Link
                                     className="btn btn-outline-primary mx-2"
-                                    onClick={()=>`/edituser/${user.id}`}
+                                    to={`/edituser/${user.userId}`}
                                 >
                                     Edit
-                                </button>
+                                </Link>
                                 <button
                                     className="btn btn-danger mx-2"
-                                    onClick={() => deleteUser(user.id)}
+                                    onClick={() => deleteUser(user.userId)}
                                 >
                                     Delete
                                 </button>
@@ -71,6 +72,9 @@ export default function Admin() {
                     ))}
                     </tbody>
                 </table>
+                <Link
+                    className="btn btn-primary mx-2"
+                    to={`/adduser`}>Add new</Link>
             </div>
         </div>
     );

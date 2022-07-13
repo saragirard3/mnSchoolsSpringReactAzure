@@ -11,14 +11,14 @@ export default function ViewUser() {
         distId: "",
     });
 
-    const { id } = useParams();
+    const { userId } = useParams();
 
     useEffect(() => {
         loadUser();
     }, []);
 
     const loadUser = async () => {
-        const result = await axios.get(`http://localhost:8080/user/${id}`);
+        const result = await axios.get(`http://localhost:8080/user/${userId}`);
         setUser(result.data);
     };
 
@@ -51,8 +51,8 @@ export default function ViewUser() {
                             </ul>
                         </div>
                     </div>
-                    <Link className="btn btn-primary my-2" to={"/"}>
-                        Back to Home
+                    <Link className="btn btn-primary my-2" to={"/admin"}>
+                        Back to Admin
                     </Link>
                 </div>
             </div>

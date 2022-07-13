@@ -9,7 +9,7 @@ import Trends from "./trends/Trends";
 import Profile from "./pages/Profile";
 import Logout from "./pages/Logout";
 import Admin from "./pages/Admin";
-// import EditUser from "./user/EditUser";
+import EditUser from "./user/EditUser";
 import ViewUser from "./user/ViewUser";
 
 
@@ -29,7 +29,7 @@ function App() {
                 <Route exact path="/logout" element={<Logout />} />
 
                 <Route exact path="/adduser" element={<AddUser />} />
-                {/*<Route exact path="/edituser/:id" element={<EditUser />} />*/}
+                <Route exact path="/edituser/:id" element={<EditUser />} />
                 <Route exact path="/viewuser/:id" element={<ViewUser />} />
             </Routes>
         </Router>
