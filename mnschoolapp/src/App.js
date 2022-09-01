@@ -11,7 +11,7 @@ import Logout from "./pages/Logout";
 import Admin from "./pages/Admin";
 import EditUser from "./user/EditUser";
 import ViewUser from "./user/ViewUser";
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
