@@ -56,6 +56,7 @@ export default function District() {
                         <div className="card-header">
                             Revenues
                             <hr />
+
                             <div className={"row"}>
                                 <div className={"col-2"}>
                                     <ul className="list-group list-group-flush">
@@ -68,8 +69,7 @@ export default function District() {
                                 <div className={"col-4"}>
                                     <ul className="list-group list-group-flush">
                                         <li className="list-group-item ">
-                                            <b>First Name: </b>
-
+                                        <b>Property Taxes</b>
                                         </li>
                                         <li className="list-group-item ">
                                             <b>Last Name:</b>
