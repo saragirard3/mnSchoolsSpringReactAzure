@@ -51,7 +51,7 @@ export default function Admin() {
                             <td>
                                 <Link
                                     className="btn btn-primary mx-2"
-                                    to={`/viewuser/${user.id}`}
+                                    to={`/viewuser/${user.userId}`}
                                 >
                                     View
                                 </Link>
