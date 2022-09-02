@@ -54,42 +54,82 @@ export default function District() {
                     {/*REVENUES*/}
                     <div className="card">
                         <div className="card-header">
-                            Revenues
+                            <h4>Revenues</h4>
                             <hr />
 
                             <div className={"row"}>
-                                <div className={"col-2"}>
+                                <div className={"col"}>
+                                    General Fund Revenues
+                                </div>
+                            </div>
+
+                            <br/>
+
+                            {/*HEADER ROW*/}
+                            <div className={"row"}>
+                                 <div className={"col-4"}>
                                     <ul className="list-group list-group-flush">
                                         <li className="list-group-item ">
-                                            General Fund Revenues
+                                            <b>Revenue Type</b>
                                         </li>
                                     </ul>
                                 </div>
-
                                 <div className={"col-4"}>
                                     <ul className="list-group list-group-flush">
-                                        <li className="list-group-item ">
-                                        <b>Property Taxes</b>
-                                        </li>
-                                        <li className="list-group-item ">
-                                            <b>Last Name:</b>
-                                        </li>
                                         <li className="list-group-item">
-                                            <b>Email:</b>
-                                        </li>
-                                        <li className="list-group-item">
-                                            <b>District:</b>
+                                            <b>Total</b>
                                         </li>
                                     </ul>
                                 </div>
-                                <div className={"col-6"}>
+                                <div className={"col-3"}>
                                     <ul className="list-group list-group-flush">
                                         <li className="list-group-item">
-                                            {'data'}
+                                            <b>Per ADM</b>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div className={"col-1"}>
+                                    <ul className="list-group list-group-flush">
+                                        <li className="list-group-item">
+                                            <b>%</b>
                                         </li>
                                     </ul>
                                 </div>
                             </div>
+
+                            {/*CONTECT ROW*/}
+                            <div className={"row"}>
+                                <div className={"col-4"}>
+                                    <ul className="list-group list-group-flush">
+                                        <li className="list-group-item ">
+                                            {"Revenue Type"}
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div className={"col-4"}>
+                                    <ul className="list-group list-group-flush">
+                                        <li className="list-group-item">
+                                            {"Total"}
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div className={"col-3"}>
+                                    <ul className="list-group list-group-flush">
+                                        <li className="list-group-item">
+                                            {"Per ADM"}
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div className={"col-1"}>
+                                    <ul className="list-group list-group-flush">
+                                        <li className="list-group-item">
+                                            {"%"}
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+
                         </div>
                     </div>
 
@@ -99,25 +139,24 @@ export default function District() {
                     <hr />
                     <div className="card">
                         <div className="card-header">
-                            Expenses
+                            <h4>Expenses</h4>
                             <hr />
+
+                            <div className={"row"}>
+                                <div className={"col"}>
+                                    General Fund Expenses
+                                </div>
+                            </div>
+
+                            <br />
 
                             <div className={"row"}>
                                 <div className={"col-6"}>
                                     <ul className="list-group list-group-flush">
                                         <li className="list-group-item ">
-                                            <b>First Name: </b>
+                                            <b>Item</b>
+                                        </li>
 
-                                        </li>
-                                        <li className="list-group-item ">
-                                            <b>Last Name:</b>
-                                        </li>
-                                        <li className="list-group-item">
-                                            <b>Email:</b>
-                                        </li>
-                                        <li className="list-group-item">
-                                            <b>District:</b>
-                                        </li>
                                     </ul>
                                 </div>
                                 <div className={"col-6"}>

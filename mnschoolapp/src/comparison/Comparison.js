@@ -6,6 +6,8 @@ import Typography from "@mui/material/Typography";
 import PropTypes from "prop-types";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
+import MultiDistrict from "./MultiDistrict";
+import CompReports from "./CompReports";
 
 
 function TabPanel(props) {
@@ -61,38 +63,36 @@ export default function Comparison() {
                 aria-label="verticle tabs"
                 sx={{ borderRight: 1, borderColor: 'divider' }}
             >
-                <Tab label="District Edit" {...a11yProps(0)} />
-                <Tab label="District Analysis" {...a11yProps(1)} />
-                <Tab label="Statewide" {...a11yProps(2)} />
-                <Tab label="Metro 48" {...a11yProps(3)} />
-                <Tab label="MREA" {...a11yProps(4)} />
-                <Tab label="SEE" {...a11yProps(5)} />
-                <Tab label="AMSD" {...a11yProps(6)} />
-                <Tab label="Other" {...a11yProps(7)} />
+                <Tab label="Multi District" {...a11yProps(0)} />
+                <Tab label="Statewide" {...a11yProps(1)} />
+                <Tab label="Metro 48" {...a11yProps(2)} />
+                <Tab label="MREA" {...a11yProps(3)} />
+                <Tab label="SEE" {...a11yProps(4)} />
+                <Tab label="AMSD" {...a11yProps(5)} />
             </Tabs>
+
             <TabPanel value={value} index={0}>
-                District Edit
+                <MultiDistrict />
             </TabPanel>
             <TabPanel value={value} index={1}>
-                District Analysis
+                Statewide
+                <CompReports />
             </TabPanel>
             <TabPanel value={value} index={2}>
-                State Comparison
+                Metro 48
+                <CompReports />
             </TabPanel>
             <TabPanel value={value} index={3}>
-                Metro 48
+                MREA
+                <CompReports />
             </TabPanel>
             <TabPanel value={value} index={4}>
-                MREA
+                SEE
+                <CompReports />
             </TabPanel>
             <TabPanel value={value} index={5}>
-                SEE
-            </TabPanel>
-            <TabPanel value={value} index={6}>
                 AMSD
-            </TabPanel>
-            <TabPanel value={value} index={7}>
-                Other
+                <CompReports />
             </TabPanel>
         </Box>
     );

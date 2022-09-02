@@ -12,6 +12,7 @@ import Admin from "./pages/Admin";
 import EditUser from "./user/EditUser";
 import ViewUser from "./user/ViewUser";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import EditDistricts from "./comparison/EditDistricts";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
                 <Route exact path="/profile" element={<Profile />} />
                 <Route exact path="/logout" element={<Logout />} />
 
+                <Route exact path="/editdistricts" element={<EditDistricts />} />
                 <Route exact path="/adduser" element={<AddUser />} />
                 <Route exact path="/edituser/:id" element={<EditUser />} />
                 <Route exact path="/viewuser/:id" element={<ViewUser />} />
