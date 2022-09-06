@@ -26,7 +26,8 @@ const revRows = [
 ];
 
 const expRows = [
-
+    createExpData('District Level Administration', 437.32, 563.27, -125.95),
+    createExpData('School Level Administration', 437.32, 563.27, -125.95),
 ]
 
 export default function District() {
@@ -90,6 +91,39 @@ export default function District() {
                                         <TableCell align={"right"}>{row.distRev}</TableCell>
                                         <TableCell align={"right"}>{row.distARev}</TableCell>
                                         <TableCell align={"right"}>{row.distPRev}</TableCell>
+                                    </TableRow>
+                                ))}
+                            </TableBody>
+                        </Table>
+                    </TableContainer>
+
+                    <hr />
+
+                    {/*Expense*/}
+                    <TableContainer component={Paper}>
+                        <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
+                            <TableHead>
+                                <TableRow>
+                                    <TableCell align={"left"}><strong>General Fund Expenditures</strong></TableCell>
+                                    <TableCell align={"right"}><strong>Total Expense</strong></TableCell>
+                                    <TableCell align={"right"}><strong>Expense per ADM</strong></TableCell>
+                                    <TableCell align={"right"}><strong>% of Expense</strong></TableCell>
+
+                                </TableRow>
+                            </TableHead>
+                            <TableBody>
+                                {expRows.map((row) => (
+                                    <TableRow
+                                        key={row.expType}
+                                        sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+
+                                    >
+                                        <TableCell component="th" scope="row">
+                                            {row.expType}
+                                        </TableCell>
+                                        <TableCell align={"right"}>{row.distExp}</TableCell>
+                                        <TableCell align={"right"}>{row.distAExp}</TableCell>
+                                        <TableCell align={"right"}>{row.distPExp}</TableCell>
                                     </TableRow>
                                 ))}
                             </TableBody>

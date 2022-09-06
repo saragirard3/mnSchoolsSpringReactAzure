@@ -28,6 +28,12 @@ public class RestApiController {
 
     @GetMapping("/expenses")
     public List<Expense> getAllExpense(){return expenseService.getAllExpenses();}
+
+    @GetMapping("/expenses/{id}")
+    Expense getExpenseByDistrictId(@PathVariable Integer distId){
+        return expenseService.getExpenseByDistrictId(distId);
+    }
+
     @GetMapping("/adms")
     public List<Adm> getAllAdm(){return admService.getAllAdm();}
     @GetMapping("/districts")
