@@ -11,7 +11,7 @@ public class Revenue {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int revId;
     private int distId;
-    private String fiscalYr;
+    private String fiscalYear;
     private int gfLocPropTax;
     private int gfLocPropTaxShift;
     private int gfLocOther;
@@ -47,8 +47,8 @@ public class Revenue {
         return distId;
     }
 
-    public String getFiscalYr() {
-        return fiscalYr;
+    public String getFiscalYear() {
+        return fiscalYear;
     }
 
     public int getGfLocPropTax() {

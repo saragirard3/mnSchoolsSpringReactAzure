@@ -8,12 +8,23 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class RevenueServiceImpl implements RevenueService{
+public class RevenueServiceImpl implements RevenueService {
     @Autowired
-    RevenueRepository revenueRepository;
+    RevenueRepository<Revenue> revenueRepository;
 
     @Override
     public List<Revenue> getAllRevenues() {
         return revenueRepository.findAll();
+    }
+
+
+    @Override
+    public List<Revenue> getRevenueByDistId(Integer distId) {
+        return revenueRepository.findByDistId(distId);
+    }
+
+    @Override
+    public List<Revenue> getRevenueByDistIdAndFiscalYear(Integer distId, String fiscalYear) {
+        return revenueRepository.findByDistIdAndFiscalYear(distId,fiscalYear);
     }
 }

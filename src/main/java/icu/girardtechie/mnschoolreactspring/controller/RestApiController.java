@@ -10,28 +10,12 @@ import java.util.List;
 @RequestMapping("/api")
 public class RestApiController {
     private DistrictService districtService;
-    private UserService userService;
     private AdmService admService;
-    private ExpenseService expenseService;
-    private RevenueService revenueService;
 
-    public RestApiController(DistrictService districtService, UserService userService, AdmService admService, ExpenseService expenseService, RevenueService revenueService) {
+    public RestApiController(DistrictService districtService, AdmService admService) {
         this.districtService = districtService;
-        this.userService = userService;
         this.admService = admService;
-        this.expenseService = expenseService;
-        this.revenueService = revenueService;
-    }
 
-    @GetMapping("/revenues")
-    public List<Revenue> getAllRevenue(){return revenueService.getAllRevenues();}
-
-    @GetMapping("/expenses")
-    public List<Expense> getAllExpense(){return expenseService.getAllExpenses();}
-
-    @GetMapping("/expenses/{id}")
-    Expense getExpenseByDistrictId(@PathVariable Integer distId){
-        return expenseService.getExpenseByDistrictId(distId);
     }
 
     @GetMapping("/adms")

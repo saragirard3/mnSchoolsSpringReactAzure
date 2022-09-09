@@ -14,7 +14,7 @@ import java.util.List;
 public class ExpenseServiceImpl implements ExpenseService {
 
     @Autowired
-    ExpenseRepository expenseRepository;
+    ExpenseRepository<Expense> expenseRepository;
 
     @Override
     public List<Expense> getAllExpenses() {
@@ -22,10 +22,24 @@ public class ExpenseServiceImpl implements ExpenseService {
     }
 
     @Override
-    public Expense getExpenseByDistrictId(@PathVariable Integer distId) {
-        return expenseRepository.findById(distId)
-                .orElseThrow(() -> new DistrictNotFoundException(distId));
+    public Expense getExpenseById(Integer id){
+        return expenseRepository.findById(id)
+                .orElseThrow(()-> new DistrictNotFoundException(id));
     }
+
+    @Override
+    public List<Expense> getExpenseByDistId(Integer distId){
+        return expenseRepository.findByDistId(distId);
+    }
+
+    @Override
+    public List<Expense> getExpenseByDistIdAndFiscalYear(Integer distId, String fiscalYear){
+        return expenseRepository.findByDistIdAndFiscalYear(distId,fiscalYear);
+    }
+
+
+
+
 
 
 }
